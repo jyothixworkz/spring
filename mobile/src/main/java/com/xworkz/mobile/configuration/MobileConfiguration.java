@@ -7,7 +7,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
-@ComponentScan(basePackages = "com.xworkz.mobile")
+@ComponentScan(basePackages = "com.xworkz")
 public class MobileConfiguration {
 
 	public MobileConfiguration() {
@@ -18,6 +18,7 @@ public class MobileConfiguration {
 	public LocalContainerEntityManagerFactoryBean containerEntityManagerFactoryBean() {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+		
 
 		return emf;
 

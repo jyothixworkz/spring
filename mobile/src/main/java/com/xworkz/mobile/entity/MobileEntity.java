@@ -3,11 +3,20 @@ package com.xworkz.mobile.entity;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="jaya")
+@Table(name = "jaya")
 public class MobileEntity {
+	@Id
+	private int id;
+	private String brand;
+	private double version;
+	private String createdBy;
+	private String updatedBy;
+	private LocalDate createDate;
+	private LocalDate updateDate;
 
 	public MobileEntity(int id, String brand, double version, String createdBy, String updatedBy, LocalDate createDate,
 			LocalDate updateDate) {
@@ -20,14 +29,6 @@ public class MobileEntity {
 		this.createDate = createDate;
 		this.updateDate = updateDate;
 	}
-
-	private int id;
-	private String brand;
-	private double version;
-	private String createdBy;
-	private String updatedBy;
-	private LocalDate createDate;
-	private LocalDate updateDate;
 
 	public int getId() {
 		return id;
