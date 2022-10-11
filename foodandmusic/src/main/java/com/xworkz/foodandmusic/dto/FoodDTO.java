@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class FoodDTO  implements Serializable{
 	private String name;
-	private double price;
+	private int price;
 	private String hotelName;
 	private String type;
 	private String location;
 	private String order;
-	private double quantity;
+	private int quantity;
 	public FoodDTO() {
 		System.out.println("DTOcreated "+ this.getClass().getSimpleName());
 		// TODO Auto-generated constructor stub
@@ -28,7 +28,7 @@ public class FoodDTO  implements Serializable{
 	public double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public String getHotelName() {
@@ -58,7 +58,7 @@ public class FoodDTO  implements Serializable{
 	public double getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(double quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 

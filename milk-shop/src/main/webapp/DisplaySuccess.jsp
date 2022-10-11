@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="Music.jsp">add songs</a>
-<a href="Food.jsp">add foods</a>
-<a href="view.manoj">view songs</a>
-<a href="view.manoj">view foods</a>
+<h1>success</h1>
+
 </body>
 </html>

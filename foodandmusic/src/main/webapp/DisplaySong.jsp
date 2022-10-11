@@ -34,18 +34,10 @@
 
 				<td>${dto.type }</td>
 
-
-
-
 			</c:forEach>
 
 
-
-
 		</thead>
-
-
-
 
 	</table>
 
