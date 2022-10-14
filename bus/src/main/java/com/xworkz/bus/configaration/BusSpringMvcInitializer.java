@@ -1,42 +1,39 @@
-package com.xworkz.milkshop.configuration;
+package com.xworkz.bus.configaration;
 
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class SpringMvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer
+public class BusSpringMvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer
 		implements WebMvcConfigurer {
-	private String[] ServletMappings = { "/" };
-	private Class[] ServletConfigClasses = { SpringConfiguration.class };
 
-	public SpringMvcInitializer() {
-		System.out.println("stringmvcinitiakizer is created " + this.getClass().getSimpleName());
-		// TODO Auto-generated constructor stub
+	private Class[] ServletConfigClasses = {BusConfigaration.class};
+	private String[] ServletMappings = {"/"};
+
+	public BusSpringMvcInitializer() {
+
+		System.out.println("busSpringinitialier is created " + this.getClass().getSimpleName());
 	}
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		// TODO Auto-generated method stub
+
 		return ServletConfigClasses;
 	}
 
 	@Override
 	protected String[] getServletMappings() {
-		// TODO Auto-generated method stub
 		return ServletMappings;
 	}
 
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-
 		configurer.enable();
-
 	}
 
 }

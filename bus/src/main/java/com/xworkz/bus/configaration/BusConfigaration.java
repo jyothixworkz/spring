@@ -1,4 +1,4 @@
-package com.xworkz.milkshop.configuration;
+package com.xworkz.bus.configaration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -7,16 +7,18 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan("com.xworkz")
-public class SpringConfiguration {
-	public SpringConfiguration() {
-		System.out.println(" spring configaration class is created"+this.getClass().getSimpleName());
+@ComponentScan(basePackages = "com.xworkz")
+public class BusConfigaration {
+
+	public BusConfigaration() {
+		System.out.println("busconfigaration is created :" + this.getClass().getSimpleName());
 
 	}
 
 	@Bean
 	public ViewResolver resolver() {
-		System.out.println(" it is my own view resolver");
+
+		System.out.println("this is view resolver");
 		return new InternalResourceViewResolver("/", ".jsp");
 	}
 

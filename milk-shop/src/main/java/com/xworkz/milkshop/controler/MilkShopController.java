@@ -11,6 +11,10 @@ import com.xworkz.milkshop.service.MilkShopService;
 @Controller
 @RequestMapping("/milk")
 public class MilkShopController {
+	
+	
+	
+	
 	@Autowired
 	private MilkShopService milkShopService;
 	public MilkShopController() {

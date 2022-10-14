@@ -17,8 +17,8 @@ public class MilkShopServiceImpl  implements MilkShopService{
 	@Override
 	public boolean validateAndSave(MilkShopDTO dto) {
 		System.out.println("service  method is created validate and save");
-		dao.save(dao);
-		return false;
+		dao.save(dto);
+		return true;
 	}
 	
 

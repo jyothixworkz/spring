@@ -1,6 +1,18 @@
 package com.xworkz.milkshop.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name="milk")
 public class MilkShopDTO {
+	@Id
+	@GenericGenerator(name="man",strategy = "increment")
+	@GeneratedValue(generator = "man")
 	private Integer id;
 	private String name;
 	private String ownerName;
@@ -8,7 +20,7 @@ public class MilkShopDTO {
 	private String ambassador;
 
 	public MilkShopDTO() {
-		System.out.println("DTO is created");
+		System.out.println("DTO is created"+this.getClass().getSimpleName());
 		// TODO Auto-generated constructor stub
 	}
 
