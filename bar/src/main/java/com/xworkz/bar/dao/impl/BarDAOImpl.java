@@ -1,40 +1,42 @@
-package com.xworkz.bus.dao;
+package com.xworkz.bar.dao.impl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.PersistenceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.xworkz.bus.dto.BusDTO;
+import com.xworkz.bar.dao.BarDAO;
+import com.xworkz.bar.dto.BarDTO;
 
 @Repository
-public class BusDAOImpl implements BusDAO {
+public class BarDAOImpl implements BarDAO {
 	@Autowired
-	private EntityManagerFactory factory; // to get ref of entitymanagerfactory
+	private EntityManagerFactory factory;
 
-	public BusDAOImpl() {
-		System.out.println("Busdao is created" + this.getClass().getSimpleName());
-
+	public BarDAOImpl() {
+		System.out.println(" i am barDAOImpl" + this.getClass().getSimpleName());
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public boolean collect(BusDTO dto) {
+	public boolean collect(BarDTO dto) {
 		EntityManager manager = factory.createEntityManager();
 		try {
 			EntityTransaction transaction = manager.getTransaction();
 			transaction.begin();
 			manager.persist(dto);
 			transaction.commit();
-		} catch (PersistenceException e) {
 
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			manager.close();
 		}
 
+		// TODO Auto-generated method stub
 		return false;
 	}
 

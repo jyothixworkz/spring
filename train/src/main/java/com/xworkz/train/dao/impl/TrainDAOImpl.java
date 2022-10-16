@@ -1,37 +1,41 @@
-package com.xworkz.bus.dao;
+package com.xworkz.train.dao.impl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.PersistenceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-import com.xworkz.bus.dto.BusDTO;
+import com.xworkz.train.dao.TrainDAO;
+import com.xworkz.train.dto.TrainDTO;
 
 @Repository
-public class BusDAOImpl implements BusDAO {
+public class TrainDAOImpl implements TrainDAO {
 	@Autowired
-	private EntityManagerFactory factory; // to get ref of entitymanagerfactory
+	 EntityManagerFactory  factory;
+	public TrainDAOImpl() {
 
-	public BusDAOImpl() {
-		System.out.println("Busdao is created" + this.getClass().getSimpleName());
+		System.out.println(" TrainDAO is created " + this.getClass().getSimpleName());
 
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public boolean collect(BusDTO dto) {
+	public boolean save(TrainDTO dto) {
 		EntityManager manager = factory.createEntityManager();
 		try {
 			EntityTransaction transaction = manager.getTransaction();
 			transaction.begin();
 			manager.persist(dto);
 			transaction.commit();
-		} catch (PersistenceException e) {
-
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+			e.getStackTrace();
+		}
+		finally {
 			manager.close();
 		}
 
