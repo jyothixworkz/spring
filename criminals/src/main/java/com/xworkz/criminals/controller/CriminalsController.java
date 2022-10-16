@@ -18,6 +18,7 @@ public class CriminalsController {
 	private CriminalsService service;
 
 	public CriminalsController() {
+		System.out.println(" nanu git test madthidini ");
 		// TODO Auto-generated constructor stub
 		System.out.println(" nanu criminalcontroller" + this.getClass().getSimpleName());
 	}
