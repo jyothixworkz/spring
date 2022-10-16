@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>hai</h1>
-<h1>Displaying Criminal Details</h1>
+	<h1>hai</h1>
+	<h1>Displaying Criminal Details</h1>
 	<h2>${size}</h2>
-    <h2>${msg}</h2>
+	<h2>${msg}</h2>
 	<table border="2">
 		<thead>
 			<tr>
@@ -31,28 +32,27 @@
 				<th>PrisonName</th>
 				<th>NetWorth</th>
 			</tr>
-			<c:forEach items="${criminalsdetails}" var="dtos">
-			<tr>
-			<th>${dtos.id}</th>
-			<th>${dtos.name}</th>
-			<th>${dtos.age}</th>
-			<th>${dtos.country}</th>
-			<th>${dtos.type}</th>
-			<th>${dtos.noOfCase}</th>
-			<th>${dtos.alive}</th>
-			<th>${dtos.gender}</th>
-			<th>${dtos.international}</th>
-			<th>${dtos.married}</th>
-			<th>${dtos.jailTerm}</th>
-			<th>${dtos.wifeName}</th>
-			<th>${dtos.rightHand}</th>
-			<th>${dtos.leftHand}</th>
-			<th>${dtos.jailName}</th>
-			<th>${dtos.netWorth}</th>
-			</tr>
+			<c:forEach items="${criminalsdetails}" var="dto">
+				<tr>
+					<th>${dto.id}</th>
+					<th>${dto.name}</th>
+					<th>${dto.age}</th>
+					<th>${dto.country}</th>
+					<th>${dto.type}</th>
+					<th>${dto.noOfCase}</th>
+					<th>${dto.alive}</th>
+					<th>${dto.gender}</th>
+					<th>${dto.international}</th>
+					<th>${dto.married}</th>
+					<th>${dto.jailTerm}</th>
+					<th>${dto.wifeName}</th>
+					<th>${dto.rightHand}</th>
+					<th>${dto.leftHand}</th>
+					<th>${dto.jailName}</th>
+					<th>${dto.netWorth}</th>
+				</tr>
 			</c:forEach>
 
 		</thead>
-
 </body>
 </html>
