@@ -8,8 +8,40 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>hi success</h1>
-	
-	
+	<h1>${size }</h1>
+	<table border="2">
+		<thead>
+			<tr>
+
+				<th>ID</th>
+				<th>Name</th>
+
+
+
+
+
+			</tr>
+			<c:forEach items="${details }" var="g">
+				<tr>
+					>
+					<th>${g.id }</th>
+					<th>${g.name }</th>
+
+
+
+
+				</tr>
+
+
+
+
+
+
+			</c:forEach>
+	</table>
+
+
+
+
 </body>
 </html>
