@@ -72,8 +72,13 @@ public class CriminalsServiceImpl implements CriminalsService {
 	@Override
 	public List<CriminalsDTO> validateAndReadAll() {
 		// TODO Auto-generated method stub
-	repository.readAll();
+		repository.readAll();
 		return repository.readAll();
 	}
+
+	@Override
+	public List<CriminalsDTO> findByName(String name) {
+		return repository.findByName(name);
+}
 
 }

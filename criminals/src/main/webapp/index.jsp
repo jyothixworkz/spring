@@ -9,7 +9,9 @@
 </head>
 <body>
 <a href="criminals">macha eli details</a>
+<a href="SelectFromName.jsp">search by name</a>
 	<form action="criminals" method="post">
+	
 
 		<pre>
 name:<input type="text" name="name" />

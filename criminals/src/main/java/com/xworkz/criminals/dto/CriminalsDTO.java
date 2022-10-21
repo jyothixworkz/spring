@@ -24,7 +24,8 @@ import lombok.ToString;
 @Getter
 @Entity
 @Table(name = "criminals_details")
-@NamedQueries({@NamedQuery(name="findAll",query="select info from CriminalsDTO info")})
+@NamedQueries({@NamedQuery(name="findAll",query="select info from CriminalsDTO info"),
+	@NamedQuery(name = "findByName", query = "select info from CriminalsDTO info where info.name=:nm")})
 public class CriminalsDTO implements Serializable {
 
 	public CriminalsDTO() {

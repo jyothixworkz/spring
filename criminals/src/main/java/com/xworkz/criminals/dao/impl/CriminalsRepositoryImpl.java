@@ -51,4 +51,21 @@ public class CriminalsRepositoryImpl implements CriminalsRepository {
 		return list;
 	}
 
+	@Override
+	public List<CriminalsDTO> findByName(String name) {
+		
+		EntityManager manager = factory.createEntityManager();
+		try {
+			Query createNamedQuery = manager.createNamedQuery("findByName");
+			createNamedQuery.setParameter("nm", name);
+		List<CriminalsDTO> resultList = createNamedQuery.getResultList();
+			return resultList;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		// TODO Auto-generated method stub
+		return null;
+}
+
 }
