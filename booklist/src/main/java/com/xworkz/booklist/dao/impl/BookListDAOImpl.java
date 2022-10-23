@@ -53,4 +53,15 @@ public class BookListDAOImpl implements BookListDAO {
 		return list;
 	}
 
+	@Override
+	public List<BookListDTO> readByName(String name) {
+		
+		EntityManager manager = factory.createEntityManager();
+		
+		Query query = manager.createNamedQuery("findByName");
+		query.setParameter("nm", name);
+		List list = query.getResultList();
+		return list;
+	}
+
 }

@@ -32,6 +32,10 @@ public class PgServiceImpl implements PgService {
 		// TODO Auto-generated method stub
 		return dao.readAll();
 	}
+	@Override
+	public List<PgDTO> validateAndReadByName(String name) {
+		return dao.readByName(name);
+	}
 	
 
 }

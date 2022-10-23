@@ -1,8 +1,11 @@
 package com.xworkz.bar.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -38,6 +41,26 @@ public class BarDAOImpl implements BarDAO {
 
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<BarDTO> readAll() {
+
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findAll");
+		List<BarDTO> resultList = query.getResultList();
+
+		return resultList;
+	}
+
+	@Override
+	public List<BarDTO> readAll(String name) {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findByName");
+		query.setParameter("nm", name);
+		List<BarDTO> resultList = query.getResultList();
+		System.out.println(resultList.isEmpty());
+		return resultList;
 	}
 
 }

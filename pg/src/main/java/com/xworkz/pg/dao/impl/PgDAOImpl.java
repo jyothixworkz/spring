@@ -52,4 +52,15 @@ public class PgDAOImpl implements PgDAO {
 		return list;
 	}
 
+	@Override
+	public List<PgDTO> readByName(String name) {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findByName");
+		query.setParameter("nm", name);
+		List list = query.getResultList();
+		
+		return list;
+		
+	}
+
 }

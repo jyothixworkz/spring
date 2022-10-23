@@ -23,7 +23,8 @@ import lombok.ToString;
 @Getter
 @Entity
 @Table(name = "car")
-@NamedQueries({ @NamedQuery(name = "find", query = " select info from CarDTO info") })
+@NamedQueries({ @NamedQuery(name = "find", query = " select info from CarDTO info") ,
+	@NamedQuery(name = "findByName", query = "select info from CarDTO info where info.name=:nm")})
 public class CarDTO implements Serializable {
 	@Id
 	@GenericGenerator(name = "m", strategy = "increment")

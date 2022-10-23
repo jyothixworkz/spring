@@ -7,6 +7,7 @@
 <title>milk shop details </title>
 </head>
 <body>
+<a href="Manoj.jsp">click</a>
 
 <form action="milk" method="post">
 <pre>
@@ -17,5 +18,6 @@ ambassador: <input type="text" name="ambassador"/>
 <input type="submit" value="save"/>
 </pre>
 </form>
+<a href="milk">banthu</a>
 </body>
 </html>

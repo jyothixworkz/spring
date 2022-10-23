@@ -51,4 +51,13 @@ public class HotelDAOImpl implements HotelDAO {
 		return resultList;
 	}
 
+	@Override
+	public List<HotelDTO> readByName(String name) {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findByName");
+		query.setParameter("nm", name);
+		List list = query.getResultList();
+		return list;
+	}
+
 }

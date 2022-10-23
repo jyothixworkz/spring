@@ -30,4 +30,10 @@ public class CarServiceImpl implements CarService {
 		return dao.readAll();
 	}
 
+	@Override
+	public List<CarDTO> validateReadByName(String Name) {
+		// TODO Auto-generated method stub
+		return dao.readByName(Name);
+	}
+
 }

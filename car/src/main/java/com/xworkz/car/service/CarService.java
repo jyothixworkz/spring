@@ -8,5 +8,7 @@ public interface CarService {
 	boolean validateAndSave(CarDTO dto);
 
 	List<CarDTO> validateAndReadAll();
+	List<CarDTO> validateReadByName(String Name);
+
 
 }

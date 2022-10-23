@@ -1,8 +1,11 @@
 package com.xworkz.shirt.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -38,6 +41,22 @@ public class ShirtDAOImpl  implements ShirtDAO{
 		
 		
 		return true;
+	}
+	@Override
+	public List<ShirtDTO> readAll() {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findAll");
+		List list = query.getResultList();
+		return list;
+	}
+	@Override
+	public List<ShirtDTO> readByBrand(String brand) {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findByName");
+		query.setParameter("br", brand);
+
+		
+		return null;
 	}
 
 }

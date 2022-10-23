@@ -1,7 +1,13 @@
 package com.xworkz.shirt.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -27,15 +33,35 @@ public class ShirtController {
 		System.out.println("nodko edune ninu save madthirodu" + dto);
 		boolean b = service.validateAndSave(dto);
 		System.out.println("manoj");
-		if(b) {
+		if (b) {
 			System.out.println("data is stored");
 			return "Display";
-		}
-		else {
+		} else {
 			System.out.println("agila");
 			return "index";
 		}
-	
 
+	}
+
+	@GetMapping
+	String omReadAll(Model model) {
+		List<ShirtDTO> list = service.validateAndReadAll();
+		model.addAttribute("man", list.size());
+		model.addAttribute("manoj", list);
+
+		return "Details";
+	}
+
+	@GetMapping("/man")
+	String omReadByBrand(Model model, HttpServletRequest request) {
+		String parameter = request.getParameter("brand");
+		
+		List<ShirtDTO> list = service.validateAndreadByBrand(parameter);
+		System.out.println(list.isEmpty());
+		System.out.println(list.size());
+		model.addAttribute("man", list.size());
+		model.addAttribute("manoj", list);
+
+		return "Details";
 	}
 }

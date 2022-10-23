@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="man" method="post">
+<form action="man/man" method="post">
 Name:<input type="text" name="name"/>
 TYPE:<input type="text" name="type"/>
 <input type="submit" value="add"/>
@@ -17,6 +17,8 @@ TYPE:<input type="text" name="type"/>
 
 
 </form>
+<a href="SelectByName.jsp">click</a>
+<a href="man">details</a>
 
 </body>
 </html>

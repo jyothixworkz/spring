@@ -35,4 +35,9 @@ public class BookListServiceImpl implements BookListService {
 		return list;
 	}
 
+	@Override
+	public List<BookListDTO> readByName(String name) {
+		return dao.readByName(name);
+	}
+
 }

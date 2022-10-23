@@ -2,6 +2,8 @@ package com.xworkz.booklist.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -31,19 +33,28 @@ public class BookListController {
 		service.validateAndave(dto);
 		return "Display";
 	}
+
 	@GetMapping
 	String readAll(Model model) {
-		
+
 		System.out.println(" nanu helavanu thoristhini");
 		List<BookListDTO> list = service.readAndValidateALL();
-		if(list!=null&&!list.isEmpty()) {
-			System.out.println(" this is the size of book:"+list.size());
+		if (list != null && !list.isEmpty()) {
+			System.out.println(" this is the size of book:" + list.size());
 			model.addAttribute("details", list);
 			model.addAttribute("size", list.size());
-			
-			
+
 		}
-		
+
+		return "SeeAll";
+	}
+@GetMapping("/man")
+	String OnReadByName(Model model, HttpServletRequest request) {
+		String attribute = request.getParameter("name");
+		List<BookListDTO> list = service.readByName(attribute);
+		model.addAttribute("size", list.size());
+		model.addAttribute("details", list);
+
 		return "SeeAll";
 	}
 

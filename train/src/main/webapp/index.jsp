@@ -7,6 +7,7 @@
 <title> nanu index page  </title>
 </head>
 <body>
+<a href="Manoj.jsp">click</a>
 <form action="train" method="post">
 
 <pre>
@@ -20,6 +21,7 @@ trainName <input type="text" name="trainName"/>
 
 
 </form>
+<a href="train">click</a>
 
 </body>
 </html>

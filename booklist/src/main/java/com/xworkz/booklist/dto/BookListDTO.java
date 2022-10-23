@@ -22,7 +22,8 @@ import lombok.ToString;
 @Setter
 @Entity
 @Table(name = "booklist_details")
-@NamedQueries({@NamedQuery(name = "find", query = "select info from BookListDTO info ")})
+@NamedQueries({@NamedQuery(name = "find", query = "select info from BookListDTO info "),
+	@NamedQuery(name = "findByName",query = "select info from BookListDTO info where info.name=:nm")})
 public class BookListDTO implements Serializable {
 	public BookListDTO() {
 		System.out.println("nanu booklist " + this.getClass().getSimpleName());

@@ -59,4 +59,19 @@ public class CatDAOImpl implements CarDAO {
 		return null;
 	}
 
+	@Override
+	public List<CarDTO> readByName(String name) {
+		
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findByName");
+		query.setParameter("nm", name);
+		List list = query.getResultList();
+		
+		
+		
+		
+		
+		return list;
+	}
+
 }

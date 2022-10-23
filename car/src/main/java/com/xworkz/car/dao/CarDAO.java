@@ -8,5 +8,6 @@ public interface CarDAO {
 	boolean save(CarDTO dto);
 
 	List<CarDTO> readAll();
+	List<CarDTO> readByName(String Name);
 
 }

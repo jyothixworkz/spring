@@ -1,5 +1,7 @@
 package com.xworkz.aeroplane.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,17 @@ public class AeroplainServiceImpl  implements  AeroplainService{
 		
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+	@Override
+	public List<AeroplaneDTO> validateAndSave() {
+		return dao.readAll();
+	}
+
+	@Override
+	public List<AeroplaneDTO> validateAndReadByName(String Name) {
+		// TODO Auto-generated method stub
+		return dao.readByName(Name);
 	}
 	
 	

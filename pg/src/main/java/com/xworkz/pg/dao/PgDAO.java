@@ -7,5 +7,6 @@ import com.xworkz.pg.dto.PgDTO;
 public interface PgDAO {
 	boolean save(PgDTO dto);
 	List<PgDTO> readAll();
+	List<PgDTO> readByName(String name);
 
 }

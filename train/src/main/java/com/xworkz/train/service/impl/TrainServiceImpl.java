@@ -1,5 +1,7 @@
 package com.xworkz.train.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,18 @@ public class TrainServiceImpl implements TrainService {
 		dao.save(dto);
 
 		return true;
+	}
+
+	@Override
+	public List<TrainDTO> validateReadAll() {
+		// TODO Auto-generated method stub
+		return dao.readAll();
+	}
+
+	@Override
+	public List<TrainDTO> validateReadByName(String trainName) {
+		// TODO Auto-generated method stub
+		return dao.readByName(trainName);
 	}
 
 }

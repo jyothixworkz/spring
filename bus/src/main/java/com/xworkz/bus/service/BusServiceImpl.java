@@ -1,5 +1,7 @@
 package com.xworkz.bus.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,18 @@ public class BusServiceImpl implements BusService {
 		System.out.println("validate and collect method is running");
 		dao.collect(dto);
 		return false;
+	}
+
+	@Override
+	public List<BusDTO> readAll() {
+		// TODO Auto-generated method stub
+		return dao.readAll();
+	}
+
+	@Override
+	public List<BusDTO> readAll(String name) {
+		// TODO Auto-generated method stub
+		return dao.readAll(name);
 	}
 
 }

@@ -2,6 +2,8 @@ package com.xworkz.hotel.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,6 +47,14 @@ String onReadAll(Model model) {
 	
 	
 	
+	return "Details";
+}
+@GetMapping("/man")
+String readByName(Model model,HttpServletRequest  request) {
+	String parameter = request.getParameter("name");
+	List<HotelDTO> list = service.validateAndReadByName(parameter);
+	model.addAttribute("size", list.size());
+	model.addAttribute("details", list);
 	return "Details";
 }
 

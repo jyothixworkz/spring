@@ -1,5 +1,7 @@
 package com.xworkz.bar.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,19 @@ public class BarServiceImpl implements BarService {
 		System.out.println(" nanu validate and save method ");
 		 dao.collect(dto);
 		return false;
+	}
+
+	@Override
+	public List<BarDTO> validateAndReadAll() {
+		return dao.readAll();
+	}
+
+	@Override
+	public List<BarDTO> validateReadAll(String name) {
+		// TODO Auto-generated method stub
+		List<BarDTO> readAll = dao.readAll(name);
+		System.out.println(readAll.isEmpty()+ " "+readAll.size());
+		return readAll;
 	}
 
 }

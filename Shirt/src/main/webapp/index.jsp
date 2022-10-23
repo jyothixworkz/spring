@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="Manoj.jsp">click</a>
 <form action="shirt" method="post">
 <pre>
 brand: <input type="text" name="brand"/>
@@ -52,6 +53,7 @@ color:<select>
 </pre>
 
 </form>
+<a href="shirt">click</a>
 
 </body>
 </html>

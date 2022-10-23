@@ -1,7 +1,13 @@
 package com.xworkz.train.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,6 +40,27 @@ public class TrainController {
 			return "index";
 		}
 
+	}
+
+	@GetMapping
+	String readAll(Model model) {
+		List<TrainDTO> list = service.validateReadAll();
+		model.addAttribute("man", list.size());
+		model.addAttribute("manoj", list);
+
+		return "DisplayAll";
+	}
+	@GetMapping("/man")
+	String onReadByBrand(Model model,HttpServletRequest request) {
+		String string = request.getParameter("trainName");
+		List<TrainDTO> list = service.validateReadByName(string);
+		
+		
+		model.addAttribute("man", list.size());
+		model.addAttribute("manoj", list);
+		
+		
+		return "DisplayAll";
 	}
 
 }

@@ -17,6 +17,7 @@
 
 
 	</form>
+	<a href="Manoj.jsp">click</a>
 
 </body>
 </html>

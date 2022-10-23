@@ -16,6 +16,7 @@
 
 
 	</form>
+	<a href="Manoj.jsp">enter</a>
 
 </body>
 </html>

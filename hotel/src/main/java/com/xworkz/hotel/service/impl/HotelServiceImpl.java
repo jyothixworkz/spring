@@ -36,4 +36,10 @@ public class HotelServiceImpl implements HotelService {
 		return dao.readAll();
 	}
 
+	@Override
+	public List<HotelDTO> validateAndReadByName(String name) {
+		// TODO Auto-generated method stub
+		return dao.readByName(name);
+	}
+
 }

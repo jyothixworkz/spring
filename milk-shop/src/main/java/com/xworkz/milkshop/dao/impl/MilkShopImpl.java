@@ -1,9 +1,12 @@
 package com.xworkz.milkshop.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -34,6 +37,23 @@ public class MilkShopImpl implements  MilkShopDAO {
 			createEntityManager.close();
 		}
 		return true;
+	}
+
+	@Override
+	public List<MilkShopDTO> readAll() {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("find");
+		List list = query.getResultList();
+		return list;
+	}
+
+	@Override
+	public List<MilkShopDTO> readByName(String name) {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findByName");
+		query.setParameter("nm", name);
+		List list = query.getResultList();
+		return list;
 	}
 
 }

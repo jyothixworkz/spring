@@ -2,6 +2,8 @@ package com.xworkz.pg.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -45,6 +47,22 @@ public class PgController {
 
 		}
 		return "null";
+	}
+	@GetMapping("/man")
+	String onReadByName(Model model, HttpServletRequest request) {
+		String parameter = request.getParameter("name");
+		
+		List<PgDTO> all = service.validateAndReadByName(parameter);
+		if (all != null && !all.isEmpty()) {
+			System.out.println(" size" + all.size());
+			model.addAttribute("size", "details of pg" + all.size());
+			// model.addAttribute("size","total criminals found :"+all.size());
+			model.addAttribute("details", all);
+
+			return "Details";
+
+		}
+		return null;
 	}
 
 }

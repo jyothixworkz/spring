@@ -1,5 +1,7 @@
 package com.xworkz.milkshop.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,16 @@ public class MilkShopServiceImpl  implements MilkShopService{
 		System.out.println("service  method is created validate and save");
 		dao.save(dto);
 		return true;
+	}
+	@Override
+	public List<MilkShopDTO> readAll() {
+		// TODO Auto-generated method stub
+		return dao.readAll();
+	}
+	@Override
+	public List<MilkShopDTO> readByName(String name) {
+		// TODO Auto-generated method stub
+		return dao.readByName(name);
 	}
 	
 

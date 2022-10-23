@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -19,6 +21,8 @@ import lombok.ToString;
 @Getter
 @Entity
 @Table(name ="train_details")
+@NamedQueries({@NamedQuery(name = "find",query = "select info from TrainDTO info"),
+	@NamedQuery(name = "findByName",query = "select info from TrainDTO info where info.trainName=:tn ")})
 public class TrainDTO  implements Serializable{
 	
 	

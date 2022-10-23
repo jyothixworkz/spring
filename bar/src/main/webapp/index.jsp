@@ -22,6 +22,8 @@
 
 
 </form>
+<a href="bar">all</a>
+<a href="ByName.jsp">entername</a>
 
 </body>
 </html>

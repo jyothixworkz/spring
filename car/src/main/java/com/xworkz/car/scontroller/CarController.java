@@ -2,6 +2,8 @@ package com.xworkz.car.scontroller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,14 +24,16 @@ public class CarController {
 		System.out.println(" nanu controller" + this.getClass().getSimpleName());
 		// TODO Auto-generated constructor stub
 	}
-@PostMapping
+
+	@PostMapping
 	String onSave(CarDTO dto) {
 		System.out.println(" edune save madthirodu" + dto);
 
 		service.validateAndSave(dto);
 		return "Dispay";
 	}
-@GetMapping
+
+	@GetMapping
 	String OnReadAll(Model model) {
 
 		List<CarDTO> list = service.validateAndReadAll();
@@ -41,6 +45,15 @@ public class CarController {
 			model.addAttribute("details", list);
 
 		}
+
+		return "Details";
+	}
+@GetMapping("/man")
+	String readByName(Model model, HttpServletRequest request) {
+		String parameter = request.getParameter("name");
+		List<CarDTO> list = service.validateReadByName(parameter);
+		model.addAttribute("size", list.size());
+		model.addAttribute("details", list);
 
 		return "Details";
 	}
