@@ -32,7 +32,7 @@ public class SpringConfigarationDB {
 	}
 
 	@Bean
-	DataSource source() {
+	  DataSource source() {
 
 		DriverManagerDataSource source = new DriverManagerDataSource();
 		source.setDriverClassName("com.mysql.cj.jdbc.Driver");

@@ -14,6 +14,7 @@
 <th>ID</th>
 <th>NAME</th>
 <th>TYPE</th>
+<th>IMAGE</th>
 
 </tr>
 <c:forEach items="${manoj }" var="m">
@@ -21,6 +22,7 @@
 <th>${m.id }</th>
 <th>${m.name}</th>
 <th>${m.type}</th>
+<th><img src="man/image?filename=${m.image }"></img></th>
 
 </tr>
 

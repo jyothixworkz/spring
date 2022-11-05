@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.xworkz.pg.controller.PgController;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,10 +32,15 @@ public class PgDTO implements Serializable {
 	@GeneratedValue(generator = "m")
 	private Integer id;
 	private String name;
+	private String fileName;
+	
 
-	public PgDTO() {
+	public PgDTO()  {
 		System.out.println(" nanu pg dto " + this.getClass().getSimpleName());
-		// TODO Auto-generated constructor stub
+		
+		
+		
+	
 	}
 
 }

@@ -3,6 +3,7 @@ package com.xworkz.train.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.xworkz.train.dao.TrainDAO;
@@ -10,6 +11,7 @@ import com.xworkz.train.dto.TrainDTO;
 import com.xworkz.train.service.TrainService;
 
 @Service
+@Component
 public class TrainServiceImpl implements TrainService {
 	@Autowired
 	private TrainDAO dao;

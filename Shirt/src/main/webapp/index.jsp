@@ -20,14 +20,14 @@ size:<select name="size">
 <option>large</option>
 
 </select>
-price:<input type="text" name="price"/>
-discount:<select>
+price:<input type="text" name="prize"/>
+discount:<select name="discount">
 <option>select</option>
 <option>10%</option>
 <option>20%</option>
 <option>30%</option>
 </select>
-quantity:<select>
+quantity:<select name="quantity">
 <option>select</option>
  
 <c:forEach begin="1" end="1000" var="index" >
@@ -37,7 +37,7 @@ quantity:<select>
 gender:<input type="radio" name="gender" value="male" />male
 <input type="radio" name="gender" value="female"/>female
 <input type="radio" name="gender" value="other"/>other
-color:<select>
+color:<select name="color">
 
 <option>select</option>
 <option>white</option>

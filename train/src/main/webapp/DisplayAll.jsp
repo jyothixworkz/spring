@@ -12,7 +12,7 @@
 <table border="2">
 <tr>
 <th>ID</th>
-<th>TRAINnAME</th>
+<th>trainName</th>
 </tr>
 <c:forEach items="${manoj }" var="m">
 <tr>

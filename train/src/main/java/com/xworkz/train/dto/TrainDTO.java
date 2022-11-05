@@ -8,8 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,6 +37,8 @@ public class TrainDTO  implements Serializable{
 	@GeneratedValue(generator = "man")
 	private Integer id;
 	private String trainName;
+	@Transient
+	private MultipartFile image;
 
 	
 	

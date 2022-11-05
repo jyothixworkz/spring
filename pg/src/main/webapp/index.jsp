@@ -8,7 +8,8 @@
 </head>
 <body>
 <a href="man">click macha</a>
-	<form action="man" method="post">
+	<form action="man" method="post" enctype="multipart/form-data">
+	<input type="file" name="image"/>
 
 		name:<input type="text" name="name" />
 		 <input type="submit" value="save" />

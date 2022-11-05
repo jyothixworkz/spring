@@ -11,8 +11,6 @@
 <form action="bar/man">
 <input type="text" name="name"/>
 <input type="submit" value="click"/>
-
-
 </form>
 
 </body>

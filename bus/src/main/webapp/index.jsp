@@ -12,8 +12,8 @@
 	 busName:<input type="text" name="busName" />
      ownerName:<input type="text" name="ownerName" />
 	 driverName:<input type="text" name="driverName" />
-	 collectorName:<input type="text" name="coolectorName" />
-      noOfSeats:<input type="text" name="noOfSeat" />
+	 collectorName:<input type="text" name="collectorName" />
+      noOfSeats:<input type="text" name="noOfSeats" />
       <input type="submit" value="submit" />
 </pre>
 	</form>

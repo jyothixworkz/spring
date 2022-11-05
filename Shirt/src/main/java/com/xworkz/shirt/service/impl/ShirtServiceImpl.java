@@ -23,7 +23,7 @@ public class ShirtServiceImpl implements ShirtService {
 	public boolean validateAndSave(ShirtDTO dto) {
 		// TODO Auto-generated method stub
 		dao.save(dto);
-		return false;
+		return true;
 	}
 
 	@Override

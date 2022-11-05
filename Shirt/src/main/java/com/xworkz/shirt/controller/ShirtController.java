@@ -57,9 +57,9 @@ public class ShirtController {
 		String parameter = request.getParameter("brand");
 		
 		List<ShirtDTO> list = service.validateAndreadByBrand(parameter);
-		System.out.println(list.isEmpty());
-		System.out.println(list.size());
-		model.addAttribute("man", list.size());
+		//System.out.println(list.isEmpty());
+		//sSystem.out.println(list.size());
+		//model.addAttribute("man", list.size());
 		model.addAttribute("manoj", list);
 
 		return "Details";

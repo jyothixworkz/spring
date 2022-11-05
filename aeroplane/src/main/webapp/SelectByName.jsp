@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>manoj</h1>
-<form action="man/man">
+<form action="man/son">
 name: <input   type="text" name="name"/>
 <input type="submit" value="click"/>
 

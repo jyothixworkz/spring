@@ -15,6 +15,7 @@
 
 				<th>ID</th>
 				<th>Name</th>
+				<th>FILENAME</th>
 
 
 
@@ -23,10 +24,10 @@
 			</tr>
 			<c:forEach items="${details }" var="g">
 				<tr>
-					>
-					<th>${g.id }</th>
-					<th>${g.name }</th>
-
+					
+					<td>${g.id }</td>
+					<td>${g.name }</td>
+                     <td><img src="man/image?filename=${g.fileName }"></img></td>
 
 
 
@@ -38,8 +39,8 @@
 
 
 			</c:forEach>
+			
 	</table>
-
 
 
 

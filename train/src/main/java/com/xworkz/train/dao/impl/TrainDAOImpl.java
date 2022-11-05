@@ -9,7 +9,6 @@ import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import com.xworkz.train.dao.TrainDAO;
 import com.xworkz.train.dto.TrainDTO;

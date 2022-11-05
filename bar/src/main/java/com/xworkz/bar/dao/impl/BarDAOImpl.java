@@ -59,7 +59,7 @@ public class BarDAOImpl implements BarDAO {
 		Query query = manager.createNamedQuery("findByName");
 		query.setParameter("nm", name);
 		List<BarDTO> resultList = query.getResultList();
-		System.out.println(resultList.isEmpty());
+		System.out.println(" how it become zero"+" "+resultList.isEmpty());
 		return resultList;
 	}
 

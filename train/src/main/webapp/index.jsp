@@ -8,11 +8,13 @@
 </head>
 <body>
 <a href="Manoj.jsp">click</a>
-<form action="train" method="post">
+<form action="train" method="post" enctype="multipart/form-data">
 
 <pre>
-
 trainName <input type="text" name="trainName"/>
+
+<input type="file" name="image"/>
+
 <input type="submit" value="bekuandrehothu"/>
 
 

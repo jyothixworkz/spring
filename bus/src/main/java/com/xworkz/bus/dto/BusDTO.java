@@ -36,8 +36,8 @@ public class BusDTO implements Serializable {
 	private String busName;
 	private String ownerName;
 	private String driverName;
-	private String collectorName;
-	private Integer noOfSeats;
+	private String  collectorName;
+	private Integer  noOfSeats;
 
 	public BusDTO() {
 		System.out.println("BusDTO is created :" + this.getClass().getSimpleName());
