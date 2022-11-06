@@ -4,6 +4,6 @@ import com.xworkz.employeesentity.EmployeesEntity;
 
 public interface EmployeeDAO {
 
-	Boolean save(EmployeesEntity entity);
+	Boolean save(EmployeesEntity entity);//save 
 
 }
