@@ -26,7 +26,7 @@ public class UserController {
 	String Save(UserDTO dto) {
 		System.out.println(dto);
 		Optional<List<UserDTO>> mail = service.validateAndFindByMail(dto.getMailId());
-		if(! mail) {
+		if(true) {
 		boolean b = service.validateAndSave(dto);
 		System.out.println(b);
 		}
