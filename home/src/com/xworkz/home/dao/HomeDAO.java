@@ -1,8 +1,12 @@
 package com.xworkz.home.dao;
 
+
+
+import java.util.List;
 import java.util.Optional;
 
 import com.xworkz.home.entity.HomeEntity;
+
 
 public interface HomeDAO {
 
@@ -18,9 +22,13 @@ public interface HomeDAO {
 		return Optional.empty();
 
 	}
-	default void delete(int id ) {
-		
-		
-		
+
+	default void delete(int id) {
+
+	}
+
+	default boolean save(List<HomeEntity> entity) {
+
+		return false;
 	}
 }

@@ -1,5 +1,6 @@
 package com.xworkz.home.dao;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
@@ -74,6 +75,29 @@ public class HomeDAOImpl implements HomeDAO {
 
 		}
 		HomeDAO.super.delete(id);
+	}
+
+	@Override
+	public boolean save(List<HomeEntity> entity) {
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		try {
+			transaction.begin();
+
+			for (HomeEntity homeEntity : entity) {
+				manager.persist(homeEntity);
+			}
+			transaction.commit();
+
+			// TODO Auto-generated method stub
+			return true;
+		} catch (Exception e) {
+
+			transaction.rollback();
+
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }
