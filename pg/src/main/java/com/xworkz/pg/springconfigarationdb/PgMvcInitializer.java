@@ -48,7 +48,7 @@ public class PgMvcInitializer extends AbstractAnnotationConfigDispatcherServletI
 		
 		System.out.println(" registratio");
 		
-		java.io.File file = new java.io.File("C:/Users/Dell/Desktop/MANOJ");
+		java.io.File file = new java.io.File("C:/Users/Dell/Desktop/MANOJ");//   C:\Users\Dell\Desktop\MANOJ
 		MultipartConfigElement multipartConfigElement =
 				new MultipartConfigElement(file.getAbsolutePath(),100000000,100000000*2,100000000/2);
 		

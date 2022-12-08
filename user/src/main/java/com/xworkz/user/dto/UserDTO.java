@@ -1,5 +1,8 @@
 package com.xworkz.user.dto;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +15,13 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "user_details")
-@NamedQueries({ @NamedQuery(name = "findByMail", query = "select info from UserDTO info where info.mailId=:ml") })
+@NamedQueries({ @NamedQuery(name = "findByMail", query = "select info from UserDTO info where info.mailId=:ml"),
+		@NamedQuery(name = "findByEmailAndSecurity", query = "select info from  UserDTO info where info.mailId=:ml and info.security=:sc"),
+		@NamedQuery(name = "updateStatusByMail", query = "update  UserDTO info set info.status=:st where info.mailId=:mi"),
+		@NamedQuery(name = "updateCountByMail", query = " update UserDTO info set info.count=:cn   where info.mailId=: mi"),
+		@NamedQuery(name = "updatePasswardByMail", query = " update  UserDTO info set info.security=:sc where info.mailId=:mi"),
+		@NamedQuery(name = "updateOtpDateAndTimeByMail", query = "update UserDTO info set info.otp=:otp,info.date=:date,info.time=:time where info.mailId=:mi") ,
+		@NamedQuery(name = "resetPasswordByEmail",query = " update  UserDTO info set info.otp=:otp,info.security=:security where info.mailId=:mi")})
 public class UserDTO {
 	@Id
 	@GenericGenerator(name = "m", strategy = "increment")
@@ -23,17 +32,42 @@ public class UserDTO {
 	private String mailId;
 	private Long phoneNumber;
 
-	public UserDTO() {
-		System.out.println(" this is DTO " + this.getClass().getSimpleName());
+	private String fileName;
+	@Column(name = "passward")
+	private String security;
+	private String status;
+	private Integer count;
+	private Integer otp;
+	private LocalDate date;
+	private LocalTime time;
 
+	public UserDTO() {
+		super();
+		System.out.println(" created UserDTO");
+		// TODO Auto-generated constructor stub
 	}
 
-	public UserDTO(Integer id, String name, String mailId, Long phoneNumber) {
+	@Override
+	public String toString() {
+		return "UserDTO [id=" + id + ", name=" + name + ", mailId=" + mailId + ", phoneNumber=" + phoneNumber
+				+ ", fileName=" + fileName + ", security=" + security + ", status=" + status + ", count=" + count
+				+ ", otp=" + otp + ", date=" + date + ", time=" + time + "]";
+	}
+
+	public UserDTO(Integer id, String name, String mailId, Long phoneNumber, String fileName, String security,
+			String status, Integer count, Integer otp, LocalDate date, LocalTime time) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.mailId = mailId;
 		this.phoneNumber = phoneNumber;
+		this.fileName = fileName;
+		this.security = security;
+		this.status = status;
+		this.count = count;
+		this.otp = otp;
+		this.date = date;
+		this.time = time;
 	}
 
 	public Integer getId() {
@@ -68,9 +102,60 @@ public class UserDTO {
 		this.phoneNumber = phoneNumber;
 	}
 
-	@Override
-	public String toString() {
-		return "UserDTO [id=" + id + ", name=" + name + ", mailId=" + mailId + ", phoneNumber=" + phoneNumber + "]";
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getSecurity() {
+		return security;
+	}
+
+	public void setSecurity(String security) {
+		this.security = security;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	public Integer getOtp() {
+		return otp;
+	}
+
+	public void setOtp(Integer otp) {
+		this.otp = otp;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public LocalTime getTime() {
+		return time;
+	}
+
+	public void setTime(LocalTime time) {
+		this.time = time;
 	}
 
 }

@@ -37,8 +37,9 @@ public class SpringConfigDB {
 		bean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		bean.setDataSource(source);
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("Hibernate.show_sql", true);
-		map.put("Hibernate.formate_sql", true);
+		map.put("hibernate.show_sql", true);
+		map.put("hibernate.formate_sql", true);
+		bean.setJpaPropertyMap(map);
 		return bean;
 	}
 

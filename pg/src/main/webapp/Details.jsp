@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+hai
 	<h1>${size }</h1>
 	<table border="2">
 		<thead>

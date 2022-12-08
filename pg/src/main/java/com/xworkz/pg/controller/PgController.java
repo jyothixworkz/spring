@@ -40,6 +40,8 @@ public class PgController {
 	String onSave(PgDTO dto ,@RequestParam("image") MultipartFile request) throws IOException {
 		byte[] bytes = request.getBytes();
 		 String saveFile=System.currentTimeMillis()+"_"+request.getOriginalFilename();
+		 System.out.println(request.getOriginalFilename()+"yes");
+		 System.out.println(saveFile);
 			Path path = Paths.get("C://Users//Dell//Desktop//MANOJ/"+saveFile);
 			System.out.println(path);
 

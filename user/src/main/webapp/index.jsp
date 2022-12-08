@@ -7,14 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="user" method="post">
-		Name:<input type="text" name="name" /> MailID:<input type="email"
-			name="mailId" /> PhoneNumber:<input type="text" name="phoneNumber" />
-
-		<input type="submit" value="save" />
+	<pre>
+	<a href="water">clickmacha</a>
+	<form action="user" method="post" enctype="multipart/form-data">
+		Name:<input type="text" name="name" />
+		 MailID:<input type="email" name="mailId" />
+	 PhoneNumber:<input type="text" name="phoneNumber" />
+	FILENAME:	  <input type="file" name="image" />
+	              
+		<input type="submit" value="SignUp" />
 
 
 	</form>
+	
+	<a href="SignIn.jsp"> SignIn</a>
+	</pre>
 	maga bande
 </body>
 </html>

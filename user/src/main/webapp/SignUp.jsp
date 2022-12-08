@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-success
+success registration
+<a href="index.jsp">home page</a>
 </body>
 </html>
