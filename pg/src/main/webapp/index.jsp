@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="man">click macha</a>
+<a href="man">click  macha</a>
 	<form action="man" method="post" enctype="multipart/form-data">
 	<input type="file" name="image"/>
 

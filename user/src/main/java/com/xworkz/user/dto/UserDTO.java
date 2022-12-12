@@ -21,7 +21,8 @@ import org.hibernate.annotations.GenericGenerator;
 		@NamedQuery(name = "updateCountByMail", query = " update UserDTO info set info.count=:cn   where info.mailId=: mi"),
 		@NamedQuery(name = "updatePasswardByMail", query = " update  UserDTO info set info.security=:sc where info.mailId=:mi"),
 		@NamedQuery(name = "updateOtpDateAndTimeByMail", query = "update UserDTO info set info.otp=:otp,info.date=:date,info.time=:time where info.mailId=:mi") ,
-		@NamedQuery(name = "resetPasswordByEmail",query = " update  UserDTO info set info.otp=:otp,info.security=:security where info.mailId=:mi")})
+		@NamedQuery(name = "resetPasswordByEmail",query = " update  UserDTO info set info.otp=:otp,info.security=:security , info.status=:st, info.conformPassward=:cp where info.mailId=:mi"),
+		@NamedQuery(name = "updateNameAndPhoneNumberBymail",query = "update UserDTO info set info.name=:name,info.phoneNumber=:pn,info.fileName=:fn where info.mailId=:mail")})
 public class UserDTO {
 	@Id
 	@GenericGenerator(name = "m", strategy = "increment")
@@ -36,6 +37,7 @@ public class UserDTO {
 	@Column(name = "passward")
 	private String security;
 	private String status;
+	private String conformPassward;
 	private Integer count;
 	private Integer otp;
 	private LocalDate date;
@@ -50,12 +52,12 @@ public class UserDTO {
 	@Override
 	public String toString() {
 		return "UserDTO [id=" + id + ", name=" + name + ", mailId=" + mailId + ", phoneNumber=" + phoneNumber
-				+ ", fileName=" + fileName + ", security=" + security + ", status=" + status + ", count=" + count
-				+ ", otp=" + otp + ", date=" + date + ", time=" + time + "]";
+				+ ", fileName=" + fileName + ", security=" + security + ", status=" + status + ", conformPassward="
+				+ conformPassward + ", count=" + count + ", otp=" + otp + ", date=" + date + ", time=" + time + "]";
 	}
 
 	public UserDTO(Integer id, String name, String mailId, Long phoneNumber, String fileName, String security,
-			String status, Integer count, Integer otp, LocalDate date, LocalTime time) {
+			String status, String conformPassward, Integer count, Integer otp, LocalDate date, LocalTime time) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -64,6 +66,7 @@ public class UserDTO {
 		this.fileName = fileName;
 		this.security = security;
 		this.status = status;
+		this.conformPassward = conformPassward;
 		this.count = count;
 		this.otp = otp;
 		this.date = date;
@@ -126,6 +129,14 @@ public class UserDTO {
 		this.status = status;
 	}
 
+	public String getConformPassward() {
+		return conformPassward;
+	}
+
+	public void setConformPassward(String conformPassward) {
+		this.conformPassward = conformPassward;
+	}
+
 	public Integer getCount() {
 		return count;
 	}
@@ -158,4 +169,5 @@ public class UserDTO {
 		this.time = time;
 	}
 
+	
 }

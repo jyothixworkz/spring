@@ -26,9 +26,13 @@ public interface UserDAO {
 
 	Optional<Boolean> updateOtpDateAndTimeByMail(Integer otp, String email, LocalDate date, LocalTime time);
 
-	default Boolean resetPasswordByEmail(String email, String security, String status, Integer otp) {
+	default Boolean resetPasswordByEmail(String email, String security, String status, Integer otp,String conformPassward) {
 		return true;
 
 	}
+
+	Boolean updateNameAndPhoneNumberBymail(String mail, Long number, String name, String fileName);
+	
+	
 
 }

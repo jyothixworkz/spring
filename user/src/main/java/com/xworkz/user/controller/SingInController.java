@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,10 +32,10 @@ public class SingInController {
 	private UserService service;
 
 	@GetMapping
-	String onFindByMailAndSecurity(UserDTO dto) {
-
+	String onFindByMailAndSecurity(UserDTO dto, Model model) {
+   
 		Optional<List<UserDTO>> mailAndSecurity = service.validateAndFindByMailAndSecurity(dto.getMailId(),
-				dto.getSecurity(), dto);
+				dto.getSecurity(), dto);// http://localhost:8080/user/signin/signin
 
 		if (mailAndSecurity.isPresent()) {
 			List<UserDTO> list = mailAndSecurity.get();
@@ -43,11 +44,15 @@ public class SingInController {
 			UserDTO userDTO = list.get(0);
 
 			if (userDTO.getStatus().equals("blocked")) {
+				model.addAttribute("msg"+"your account is blocked");
 
 				System.out.println(" your accout is blocked");
 				return "SignIn";
 			} else {
 				System.out.println(" your registration is complited");
+				model.addAttribute("msg", dto.getName() + "welcome to ur profile");
+				model.addAttribute("UserDTO", userDTO);
+
 				return "Welcome";
 			}
 		} else {
@@ -64,21 +69,23 @@ public class SingInController {
 	}
 
 	@PostMapping
-	String onSignIn(UserDTO dto) {
+	String onSignIn(UserDTO dto, Model response) {
 
-		return onFindByMailAndSecurity(dto);
+		return onFindByMailAndSecurity(dto, response);
 	}
+	
 
-	@GetMapping(value = { "/water", "/signin/water" })
+	@GetMapping(value = {"/image","/signin/image"})
 	void sendFile(@RequestParam String fileName, HttpServletResponse response) throws IOException {
 		System.out.println(" running in send file........." + fileName);
 
-		File file = new File("C://Users//Dell//Desktop//user/" + fileName);
+		File file = new File("C://Users//Dell//Desktop//user/" + fileName);//http://localhost:8080/user/signin/man
 		String mimeType = URLConnection.guessContentTypeFromName(file.getName());
 		response.setContentType(mimeType);
-		try (ServletOutputStream stream = response.getOutputStream()) {
+		try (ServletOutputStream stream = response.getOutputStream()) {// http://localhost:8080/user/signin/signin
 
-			stream.write(Files.readAllBytes(file.toPath()));
+			stream.write(Files.readAllBytes(file.
+					toPath()));
 		}
 		// return "fileName";
 	}

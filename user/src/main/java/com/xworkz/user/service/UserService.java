@@ -56,10 +56,11 @@ public interface UserService {
 		return null;
 
 	}
-	 default Boolean resetPassward(String mail, String security,Integer otp,UserDTO dto) {
+	 default Boolean resetPassward(String mail, String security,Integer otp,UserDTO dto,String conformPassward) {
 		return null;
 		 
 		 
 		 
 	 }
+	 
 }

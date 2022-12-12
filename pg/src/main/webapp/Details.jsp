@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-hai
+	hai
 	<h1>${size }</h1>
 	<table border="2">
 		<thead>
@@ -25,10 +25,10 @@ hai
 			</tr>
 			<c:forEach items="${details }" var="g">
 				<tr>
-					
+
 					<td>${g.id }</td>
 					<td>${g.name }</td>
-                     <td><img src="man/image?filename=${g.fileName }"></img></td>
+					<td><img src="man/image?filename=${g.fileName }"></img></td>
 
 
 
@@ -40,7 +40,6 @@ hai
 
 
 			</c:forEach>
-			
 	</table>
 
 

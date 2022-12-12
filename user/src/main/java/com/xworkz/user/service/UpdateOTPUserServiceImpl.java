@@ -61,7 +61,7 @@ public class UpdateOTPUserServiceImpl implements UserService {
 			dto.setOtp(otpGeneration);
 			dto.setDate(date2);
 			dto.setTime(time2);
-			Optional<Boolean> otpDateAndTimeByMail = dao.updateOtpDateAndTimeByMail(dto.getOtp(), dto.getMailId(),
+			Optional<Boolean> otpDateAndTimeByMail = dao.updateOtpDateAndTimeByMail(otpGeneration, dto.getMailId(),
 					dto.getDate(), dto.getTime());
 			System.out.println(" this is my otp " + dto.getOtp() + "—————————————");
 			if (otpDateAndTimeByMail.isPresent()) {
@@ -122,7 +122,7 @@ public class UpdateOTPUserServiceImpl implements UserService {
 			mimeMessage.setSubject("otp for reset password");
 			System.out.println(" mail ata pata9");
 			// Integer otp2 = dto.getOtp();
-			mimeMessage.setText("  hai " + dto.getMailId() + " otp is " + dto.getOtp() + " thank you");
+			mimeMessage.setText("  hai " + dto.getMailId() + " otp is " + otp + " thank you");
 			System.out.println(dto.getOtp() + "🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶");
 			System.out.println(" mail ata pata10");
 			Transport.send(mimeMessage);
@@ -135,14 +135,18 @@ public class UpdateOTPUserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Boolean resetPassward(String mail, String security, Integer otp, UserDTO dto) {
+	public Boolean resetPassward(String mail, String security, Integer otp, UserDTO dto,String conformPassward) {
 		System.out.println(" running on resetPassward ");
 		Optional<List<UserDTO>> findByMail = dao.findByMail(mail);
+
 		List<UserDTO> list = findByMail.get();
 		UserDTO userDTO = list.get(0);
+		System.out.println(userDTO + "💖💖💖💖💖💖💖");
+
 		if (userDTO != null) {
-			Integer otp1 = otp; // problem
-			System.out.println(otp1 + "🐗🐗🐗🐗🐗🐗🐗🐗🐗🐗🐗");
+			Integer otp2 = userDTO.getOtp();
+			// otp2 = otp; // problem
+			System.out.println(otp2 + "🐗🐗🐗🐗🐗🐗🐗🐗🐗🐗🐗");
 			System.out.println(otp + "🐞🐞🐞🐞🐞🐞🐞🐞🐞🐞🐞");
 			LocalTime time = userDTO.getTime();
 			LocalTime now = LocalTime.now();
@@ -150,11 +154,13 @@ public class UpdateOTPUserServiceImpl implements UserService {
 			Duration between = Duration.between(time, now);
 			long minutes = between.toMinutes();
 			if (minutes <= 3) {
-				if (otp1.equals(otp)) {
+				if (otp2.equals(otp)) {
 					dto.setSecurity(security);
-					dto.setStatus("unblocked");// problemmmmm
+					dto.setStatus("unblocked");
+					System.out.println(dto.getStatus()+"🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️");
+					// problemmmmm
 					Boolean passwordByEmail = dao.resetPasswordByEmail(mail, dto.getSecurity(), dto.getStatus(),
-							dto.getOtp());
+							dto.getOtp(),dto.getConformPassward());
 					return true;
 				} else {
 					System.out.println(" otp is not match");
@@ -168,8 +174,7 @@ public class UpdateOTPUserServiceImpl implements UserService {
 
 		}
 
-		// TODO Auto-generated method stub
-		return UserService.super.resetPassward(mail, security, otp, dto);
+		return false;
 	}
 
 }

@@ -188,7 +188,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public Boolean resetPasswordByEmail(String email, String security, String status, Integer otp) {
+	public Boolean resetPasswordByEmail(String email, String security, String status, Integer otp, String conformPassward) {
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		try {
@@ -197,6 +197,8 @@ public class UserDAOImpl implements UserDAO {
 			query.setParameter("security", security);
 			query.setParameter("otp", otp);
 			query.setParameter("mi", email);
+			query.setParameter("st", status);
+			query.setParameter("cp", conformPassward);
 			int executeUpdate = query.executeUpdate();
 			System.out.println(executeUpdate);
 			transaction.commit();
@@ -208,7 +210,33 @@ public class UserDAOImpl implements UserDAO {
 			manager.close();
 		}
 
-		return UserDAO.super.resetPasswordByEmail(email, security, status, otp);
+		return false;
+	}
+
+
+
+	@Override
+	public Boolean updateNameAndPhoneNumberBymail(String mail, Long number, String name,String fileName) {
+
+		try {
+			System.out.println(mail + number + name);
+			EntityManager manager = factory.createEntityManager();
+			EntityTransaction transaction = manager.getTransaction();
+			transaction.begin();
+			Query query = manager.createNamedQuery("updateNameAndPhoneNumberBymail");
+			query.setParameter("mail", mail);
+			query.setParameter("pn", number);
+			query.setParameter("name", name);
+			query.setParameter("fn", fileName);
+			int executeUpdate = query.executeUpdate();
+			System.out.println(executeUpdate);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }

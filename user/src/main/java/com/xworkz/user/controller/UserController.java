@@ -52,24 +52,24 @@ public class UserController {
 		// dto.setSecurity("123");
 		if (byMail.isPresent()) {
 			System.out.println(" mail already there data base ali save agthila ");
-			model.addAttribute("message", "regester is fail ");
-			return "SignUp";
+			model.addAttribute("mesg", "your account is allready there please log in");
+			return "SignIn";
 		} else {
 			System.out.println(dto);
 			boolean save = service.validateAndSave(dto);
 			if (save) {
 				model.addAttribute("dto", dto);
-				model.addAttribute("message1", "registration is successfull");
-				return "SignUp";
+				model.addAttribute("mesg", "registration is successfull");
+				return "index";
 
 			} else {
 
-				model.addAttribute("message1", "registration is unsuccessfull");
+				model.addAttribute("mesg", "registration is unsuccessfull");
 
+				return "SignUp";
 			}
 		}
 
-		return "SignUp";
 
 	}
 }

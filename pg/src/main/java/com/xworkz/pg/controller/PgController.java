@@ -59,12 +59,13 @@ public class PgController {
 	@GetMapping
 	String onReadAll(Model model) {
 		List<PgDTO> all = service.validateAndReadAll();
+		System.out.println("readalllllllllllll");
 		if (all != null && !all.isEmpty()) {
 			System.out.println(" size" + all.size());
 			model.addAttribute("size", "details of pg" + all.size());
 			// model.addAttribute("size","total criminals found :"+all.size());
 			model.addAttribute("details", all);
-
+  System.out.println("mauydrtfyguiuougf");
 			return "Details";
 
 		}
@@ -72,7 +73,10 @@ public class PgController {
 	}
 	@GetMapping("/man")
 	String onReadByName(Model model, HttpServletRequest request) {
+		System.out.println("read by nameeeeeeeeeeeeeeeeeeeee");
 		String parameter = request.getParameter("name");
+		System.out.println("💖💖💖💖💖💖"+parameter);
+		System.out.println("🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔");
 		
 		List<PgDTO> all = service.validateAndReadByName(parameter);
 		if (all != null && !all.isEmpty()) {
@@ -82,12 +86,12 @@ public class PgController {
 			model.addAttribute("details", all);
 			
 
-			return "Details";
+			return "Details";//http://localhost:8080/pg/man
 
 		}
 		return null;
 	}
-	@GetMapping(value={"/image","/man/image"})
+	@GetMapping(value={"/image","/man/image"})//http://localhost:8080/pg/man/man?name=manojjyothi
     public void sendFile(@RequestParam String filename, HttpServletResponse response) throws IOException {
             System.out.println("running sendFile..."+filename);
             //file name from DB
@@ -101,6 +105,7 @@ public class PgController {
             }
             
     }
+	
 	
 	
 

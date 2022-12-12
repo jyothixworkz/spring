@@ -40,6 +40,7 @@ public class UserServiceImpl implements UserService {
 			System.out.println(" password is not emty");
 			dto.setSecurity(passwardGenerator);
 			dto.setCount(count);
+			dto.setStatus("unblocked");
 			boolean save = dao.save(dto);
 			if (save) {
 				Boolean sendMail = sendMail(dto.getMailId(), dto, dto.getSecurity());
