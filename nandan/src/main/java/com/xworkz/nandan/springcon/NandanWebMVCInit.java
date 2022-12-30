@@ -1,19 +1,14 @@
-package com.xworkz.bar.configaration;
+package com.xworkz.nandan.springcon;
 
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class BarMvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer
-		implements WebMvcConfigurer {
-	private Class[] ServletConfigClasses = { StringConfigaration.class };
-	private String[] ServletMappings = { "/" };
-      public BarMvcInitializer() {
-		System.out.println("mvc ini");
-	}
+public class NandanWebMVCInit extends
+AbstractAnnotationConfigDispatcherServletInitializer implements WebMvcConfigurer {
+
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		System.out.println(" nan holage henu ella ");
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -21,21 +16,17 @@ public class BarMvcInitializer extends AbstractAnnotationConfigDispatcherServlet
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		// TODO Auto-generated method stub
-		System.out.println(" nanu getservletconficlasses");
-		return ServletConfigClasses;
+		return new Class[] {SpringCon.class};
 	}
 
 	@Override
 	protected String[] getServletMappings() {
-		System.out.println(" nanu getservletmapping");
 		// TODO Auto-generated method stub
-		return ServletMappings;
+		return new String[] {"/"};
 	}
-
-	@Override
+	 @Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
-
-	}
+		 configurer.enable();
+	 }
 
 }

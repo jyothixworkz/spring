@@ -47,15 +47,15 @@ body {
 </head>
 <body>
 	<form action="add/add">
-	<input type="text" name="productName"/>
-	<input type="submit" value="search"/>
+	<input type="text" name="productName" placeholder="ProductName"/>
+	<input type="submit" value="search" />
 	
 	
 	</form>
 	<form action="add/manoj">
 	
 	
-	<input type="text" name="category"/>
+	<input type="text" name="category"  placeholder="Category"/>
 	<input type="submit" value="huduku"/>
 	
 	
