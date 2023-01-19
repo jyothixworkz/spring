@@ -15,7 +15,7 @@ public class KalyanRepositoryImpl implements KalyanRepository {
 	@Override
 	public Boolean save(KalyanEntity entity) {
 		System.out.println("manoj");
-		return null;
+		return true;
 	}
 
 }
